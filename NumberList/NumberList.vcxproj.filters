@@ -27,4 +27,7 @@
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="numbers.txt" />
+  </ItemGroup>
 </Project>
