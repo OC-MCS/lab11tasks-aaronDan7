@@ -24,15 +24,8 @@ void NumberList::appendNode(int num)
 		head = newNode;
 	else  // Otherwise, insert newNode at end.
 	{
-		// Initialize nodePtr to head of list.
-		nodePtr = head;
-
-		// Find the last node in the list.
-		while (nodePtr->next)
-			nodePtr = nodePtr->next;
-
-		// Insert newNode as the last node.
-		nodePtr->next = newNode;
+		tail->next = newNode;
+		tail = newNode;
 	}
 }
 
@@ -82,6 +75,7 @@ void NumberList::insertNode(int num)
 	{
 		head = newNode;
 		newNode->next = nullptr;
+		tail = newNode;
 	}
 	else  // Otherwise, insert newNode
 	{
@@ -107,6 +101,10 @@ void NumberList::insertNode(int num)
 		}
 		else  // Otherwise insert after the previous node.
 		{
+			if (nodePtr == nullptr)
+			{
+				tail = newNode;
+			}
 			previousNode->next = newNode;
 			newNode->next = nodePtr;
 		}
@@ -153,6 +151,10 @@ void NumberList::deleteNode(int num)
 		// nodePtr, then delete nodePtr.
 		if (nodePtr)
 		{
+			if (nodePtr == tail)
+			{
+				tail = previousNode;
+			}
 			previousNode->next = nodePtr->next;
 			delete nodePtr;
 		}
@@ -188,13 +190,24 @@ NumberList::~NumberList()
 
 NumberList NumberList::operator=(NumberList copy)
 {
-	copy.head = head;
+	ListNode* ptr;
+	ListNode* nextNode;
+	ptr = head;
 
-	while (head != nullptr)
+	while (ptr)
 	{
-		copy.head->next = head->next;
-		copy.head->value = head->value;
-		head = head->next;
+		nextNode = ptr->next;
+		deleteNode(ptr->value);
+		ptr = nextNode;
+	}
+
+	head = nullptr;
+	ptr = copy.head;
+
+	while (ptr)
+	{
+		appendNode(ptr->value);
+		ptr = ptr->next;
 	}
 	return *this;
 }

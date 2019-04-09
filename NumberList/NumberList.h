@@ -12,7 +12,7 @@ private:
 	};
 
 	ListNode *head;            // List head pointer
-
+	ListNode *tail;
 public:
 	// Constructor
 	NumberList()
