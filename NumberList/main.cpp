@@ -24,7 +24,7 @@ int main()
 	{
 		int i;
 		file >> i;
-		list.insertNode;
+		list.insertNode(i);
 	}
 	list.displayList; */
 
@@ -43,8 +43,6 @@ int main()
 	listA.displayList();
 	cout << "list B after assign: " << endl;
 	listB.displayList();
-
-
 
 	return 0;
 }
