@@ -21,7 +21,10 @@ void NumberList::appendNode(int num)
 	// If there are no nodes in the list
 	// make newNode the first node.
 	if (!head)
+	{
 		head = newNode;
+		tail = newNode;
+	}
 	else  // Otherwise, insert newNode at end.
 	{
 		tail->next = newNode;
@@ -188,26 +191,26 @@ NumberList::~NumberList()
 	}
 }
 
-NumberList NumberList::operator=(NumberList copy)
+NumberList NumberList::operator=(NumberList& copy)
 {
-	ListNode* ptr;
-	ListNode* nextNode;
-	ptr = head;
+		ListNode* ptr;
+		ListNode* nextNode;
+		ptr = head;
 
-	while (ptr)
-	{
-		nextNode = ptr->next;
-		deleteNode(ptr->value);
-		ptr = nextNode;
-	}
+		while (ptr)
+		{
+			nextNode = ptr->next;
+			deleteNode(ptr->value);
+			ptr = nextNode;
+		}
 
-	head = nullptr;
-	ptr = copy.head;
+		head = nullptr;
+		ptr = copy.head;
 
-	while (ptr)
-	{
-		appendNode(ptr->value);
-		ptr = ptr->next;
-	}
+		while (ptr)
+		{
+			appendNode(ptr->value);
+			ptr = ptr->next;
+		}
 	return *this;
 }

@@ -18,6 +18,7 @@ public:
 	NumberList()
 	{
 		head = nullptr;
+		tail = nullptr;
 	}
 
 	// Destructor
@@ -29,6 +30,6 @@ public:
 	void deleteNode(int);
 	void displayList() const;
 
-	NumberList operator=(NumberList);
+	NumberList operator=(NumberList&);
 };
 
