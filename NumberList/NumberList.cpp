@@ -185,3 +185,16 @@ NumberList::~NumberList()
 		nodePtr = nextNode;
 	}
 }
+
+NumberList NumberList::operator=(NumberList copy)
+{
+	copy.head = head;
+
+	while (head != nullptr)
+	{
+		copy.head->next = head->next;
+		copy.head->value = head->value;
+		head = head->next;
+	}
+	return *this;
+}

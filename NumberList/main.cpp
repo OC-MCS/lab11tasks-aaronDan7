@@ -7,7 +7,7 @@ using namespace std;
 
 int main()
 {
-	NumberList list;
+	/* NumberList list;
 
 	list.insertNode(10);
 	list.appendNode(40);
@@ -26,7 +26,24 @@ int main()
 		file >> i;
 		list.insertNode;
 	}
-	list.displayList;
+	list.displayList; */
+
+	NumberList listA, listB;
+	listA.appendNode(10);
+	listA.appendNode(20);
+	listB.appendNode(15);
+	listB.appendNode(40);
+	cout << "list A before assign: " << endl;
+	listA.displayList();
+	cout << "list B before assign: " << endl;
+	listB.displayList();
+	listA = listB;	// assign B to A
+	listB.appendNode(50);
+	cout << "list A after assign: " << endl;
+	listA.displayList();
+	cout << "list B after assign: " << endl;
+	listB.displayList();
+
 
 
 	return 0;

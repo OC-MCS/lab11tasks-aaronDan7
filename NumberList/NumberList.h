@@ -28,5 +28,7 @@ public:
 	void insertNode(int);
 	void deleteNode(int);
 	void displayList() const;
+
+	NumberList operator=(NumberList);
 };
 
